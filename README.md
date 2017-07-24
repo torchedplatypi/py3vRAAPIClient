@@ -1,8 +1,8 @@
-[![Build Status](https://travis-ci.org/chelnak/vRAAPIClient.svg?branch=master)](https://travis-ci.org/chelnak/vRAAPIClient)
+#Welcome to py3vRAAPIClient
 
-#Welcome to vRAAPIClient
+This project is a fork of [vRAAPIClient by chelnak](https://github.com/chelnak/vRAAPIClient), which was originally written for Python 2.
 
-vRAAPIClient is a python wrapper for the vRealize Automation REST API. It currently supports:
+py3vRAAPIClient is a python 3 wrapper for the vRealize Automation REST API. It currently supports:
 
 * Catalog Service Consumer API client: Request and view resources
 * Reservation Service API client: Create and view reservations
