@@ -1,4 +1,4 @@
-#Welcome to py3vRAAPIClient-future
+#Welcome to vRAAPIClient-future
 
 This project is a fork of [vRAAPIClient by chelnak](https://github.com/chelnak/vRAAPIClient), which was originally written for Python 2.
 
