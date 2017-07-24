@@ -1,8 +1,8 @@
-#Welcome to py3vRAAPIClient
+#Welcome to py3vRAAPIClient-future
 
 This project is a fork of [vRAAPIClient by chelnak](https://github.com/chelnak/vRAAPIClient), which was originally written for Python 2.
 
-py3vRAAPIClient is a python 3 wrapper for the vRealize Automation REST API. It currently supports:
+vRAAPIClient-future is a python 3 wrapper for the vRealize Automation REST API. It currently supports:
 
 * Catalog Service Consumer API client: Request and view resources
 * Reservation Service API client: Create and view reservations
