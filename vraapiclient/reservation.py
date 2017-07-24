@@ -1,10 +1,12 @@
 #!/usr/bin/python
+from __future__ import print_function
+from __future__ import absolute_import
 __author__ = 'https://github.com/chelnak'
 import json
 
 import requests
 
-from helpers import authenticate, checkResponse
+from .helpers import authenticate, checkResponse
 from prettytable import PrettyTable
 
 
@@ -36,7 +38,7 @@ class ReservationClient(object):
 		This is only for troubleshooting.
 		"""
 
-        print self.token
+        print(self.token)
 
     def getAllBusinessGroups(self, tenant=None, show='table', limit=20):
         """
@@ -72,7 +74,7 @@ class ReservationClient(object):
             for i in businessGroups['content']:
                 table.add_row([i['id'], i['name']])
 
-            print table
+            print(table)
         elif show == 'json':
             return businessGroups['content']
 
@@ -104,7 +106,7 @@ class ReservationClient(object):
             table.add_row([
             reservation['id'], reservation['name']])
 
-            print table
+            print(table)
 
         elif show == 'json':
             return reservation
@@ -136,7 +138,7 @@ class ReservationClient(object):
                     table.add_row([
                         reservation['content'][0]['id'], reservation['content'][0]['name']])
 
-                    print table
+                    print(table)
 
         elif show == 'json':
                 return reservation['content'][0]
@@ -171,7 +173,7 @@ class ReservationClient(object):
             for i in reservations['content']:
                 table.add_row([i['id'], i['name']])
 
-            print table
+            print(table)
         elif show == 'json':
             return reservations['content']
 

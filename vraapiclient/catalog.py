@@ -1,10 +1,12 @@
 #!/usr/bin/python
+from __future__ import print_function
+from __future__ import absolute_import
 __author__ = 'https://github.com/chelnak'
 import json
 
 import requests
 
-from helpers import authenticate, checkResponse
+from .helpers import authenticate, checkResponse
 from prettytable import PrettyTable
 
 
@@ -35,7 +37,7 @@ class ConsumerClient(object):
 		This is only for troubleshooting.
 		"""
 
-        print self.token
+        print(self.token)
 
     def getResource(self, id, show='json'):
         """
@@ -65,7 +67,7 @@ class ConsumerClient(object):
                 resource['catalogItem']['label']
             ])
 
-            print table
+            print(table)
 
         elif show == 'json':
             return resource
@@ -99,7 +101,7 @@ class ConsumerClient(object):
                         resource['content'][0]['catalogItem']['label']
                     ])
 
-            print table
+            print(table)
 
         elif show == 'json':
             return resource['content'][0]
@@ -135,7 +137,7 @@ class ConsumerClient(object):
                     item['resourceTypeRef']['label'], item['status'],
                     ])
 
-            print table
+            print(table)
 
         elif show == 'json':
             return resource
@@ -229,7 +231,7 @@ class ConsumerClient(object):
             for i in resources['content']:
                 table.add_row([i['id'], i['name']])
 
-            print table
+            print(table)
 
         elif show == 'json':
             return resources['content']
@@ -261,7 +263,7 @@ class ConsumerClient(object):
             for i in entries:
                 table.add_row([i['key'], i['value']['value']])
 
-            print table
+            print(table)
 
         elif show == 'json':
             return entries
@@ -299,7 +301,7 @@ class ConsumerClient(object):
                 table.add_row([i['catalogItem']['id'],
                                i['catalogItem']['name']])
 
-            print table
+            print(table)
 
         elif show == 'json':
             return items['content']
@@ -368,7 +370,7 @@ class ConsumerClient(object):
             table = PrettyTable(['Id', 'Request Number', 'Item', 'State'])
             table.add_row([request['id'], request['requestNumber'], request['requestedItemName'], request['state']])
 
-            print table
+            print(table)
 
         elif show == 'json':
             return request
@@ -402,7 +404,7 @@ class ConsumerClient(object):
             for i in items['content']:
                 table.add_row([i['id'], i['requestNumber'], i['requestedItemName'], i['state']])
 
-            print table
+            print(table)
 
         elif show == 'json':
             return items['content']

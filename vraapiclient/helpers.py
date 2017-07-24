@@ -1,4 +1,5 @@
 #!/usr/bin/python
+from __future__ import print_function
 __author__ = 'https://github.com/chelnak'
 import json
 import sys
@@ -16,8 +17,8 @@ def checkResponse(r):
 
     acceptedResponses = [200, 201, 203, 204]
     if not r.status_code in acceptedResponses:
-        print "STATUS: {status} ".format(status=r.status_code)
-        print "ERROR: " + r.text
+        print("STATUS: {status} ".format(status=r.status_code))
+        print("ERROR: " + r.text)
         sys.exit(r.status_code)
 
 
