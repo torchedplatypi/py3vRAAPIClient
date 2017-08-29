@@ -325,6 +325,20 @@ class ConsumerClient(object):
         form = r.json()
         return form
 
+    def getCatalogItemTemplate(self, catalogItem):
+        host = self.host
+        token = self.token
+        url = 'https://{host}/catalog-service/api/consumer/entitledCatalogItems/{id}/requests/template'.format(host=host, id=catalogItem["id"])
+        headers = {
+            'Content-Type': 'application/json',
+            'Accept': 'application/json',
+            'Authorization': token
+        }
+        r = requests.get(url=url, headers=headers, verify=False)
+        checkResponse(r)
+        form = r.json()
+        return form
+
     def getCatalogItemFormDetails(self, catalogItem):
         host = self.host
         token = self.token
