@@ -498,7 +498,7 @@ class ConsumerClient(object):
 
     def provisionCatalogItem(self, catalogItem, forWhom="", requestDescription=None, reason=None,
                              vmDescription=None, vmLeaseDays=None, vmMemorySize=None,
-                             vmCpuCount=None, params={}, prepareOnly=False):
+                             vmCpuCount=None, businessGroupId=None, params={}, prepareOnly=False):
         requestData = {
             "@type": "CatalogItemRequest",
             "catalogItemRef": {
@@ -506,6 +506,7 @@ class ConsumerClient(object):
             },
             "organization": catalogItem["organization"],
             "requestedFor": forWhom,
+            "businessGroupId": businessGroupId
             "state": "UNSUBMITTED" if prepareOnly else "SUBMITTED",
             "requestNumber": 0,
             "requestData": {
