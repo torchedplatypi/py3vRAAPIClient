@@ -506,7 +506,7 @@ class ConsumerClient(object):
             },
             "organization": catalogItem["organization"],
             "requestedFor": forWhom,
-            "businessGroupId": businessGroupId
+            "businessGroupId": businessGroupId,
             "state": "UNSUBMITTED" if prepareOnly else "SUBMITTED",
             "requestNumber": 0,
             "requestData": {
