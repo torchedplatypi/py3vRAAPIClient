@@ -464,7 +464,7 @@ class ConsumerClient(object):
             'Authorization': token
         }
         r = requests.post(url=url,
-                          data=json.dumps(payload),
+                          json=payload,
                           headers=headers,
                           verify=False)
         checkResponse(r)
@@ -496,6 +496,7 @@ class ConsumerClient(object):
         }
         return self.requestResource(requestData)
 
+    #this is broken for our version of vRA and I haven't succesfully fixed yet. Leave alone for now.
     def provisionCatalogItem(self, catalogItem, forWhom="", requestDescription=None, reason=None,
                              vmDescription=None, vmLeaseDays=None, vmMemorySize=None,
                              vmCpuCount=None, businessGroupId=None, params={}, prepareOnly=False):
