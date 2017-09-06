@@ -464,7 +464,34 @@ class ConsumerClient(object):
             'Authorization': token
         }
         r = requests.post(url=url,
-                          json=payload,
+                          data=payload,
+                          headers=headers,
+                          verify=False)
+        checkResponse(r)
+
+        id = r.headers['location'].split('/')[7]
+
+        return id
+
+    def requestMachine(self, catalog_id, payload):
+        """
+		Function that will submit a request based on payload.
+		payload = json body (example in request.json)
+		Parameters:
+			payload = JSON request body.
+		"""
+
+        host = self.host
+        token = self.token
+
+        url = 'https://{host}/catalog-service/api/consumer/entitledCatalogItems/{id}/requests'.format(host=host, id=catalog_id)
+        headers = {
+            'Content-Type': 'application/json',
+            'Accept': 'application/json',
+            'Authorization': token
+        }
+        r = requests.post(url=url,
+                          data=payload,
                           headers=headers,
                           verify=False)
         checkResponse(r)
