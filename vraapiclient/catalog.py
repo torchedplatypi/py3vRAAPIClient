@@ -41,7 +41,7 @@ class ConsumerClient(object):
 		This is only for troubleshooting.
 		"""
 
-        print(self.token)
+        return self.token
 
     def getResource(self, id, show='json'):
         """
