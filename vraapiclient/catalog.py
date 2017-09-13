@@ -31,9 +31,9 @@ class ConsumerClient(object):
         self.password = password
         self.tenant = tenant
         if(token==''):
-        	self.token = authenticate(host, username, password, tenant)
-	else:
-		self.token = token
+                self.token = authenticate(host, username, password, tenant)
+        else:
+                self.token = token
 
     def getToken(self):
         """
