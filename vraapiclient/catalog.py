@@ -30,7 +30,7 @@ class ConsumerClient(object):
         self.username = username
         self.password = password
         self.tenant = tenant
-	if(token==''):
+        if(token==''):
         	self.token = authenticate(host, username, password, tenant)
 	else:
 		self.token = token
