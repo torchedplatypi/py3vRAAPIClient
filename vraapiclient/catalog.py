@@ -11,7 +11,7 @@ from prettytable import PrettyTable
 
 
 class ConsumerClient(object):
-    def __init__(self, host, username, password, tenant=None):
+    def __init__(self, host, username, password, token='', tenant=None):
         """
 		Creates a connection to the vRA REST API using the provided
 		username and password.
@@ -19,6 +19,7 @@ class ConsumerClient(object):
 	                host = vRA Appliance fqdn
         	        user = user account with access to the vRA portal
                 	passowrd = valid password for above user
+			token = auth token if already acquired via previous client
 	                tenant = tenant for user. if this is NONE it will default to "vsphere.local"
 		"""
 
@@ -29,7 +30,10 @@ class ConsumerClient(object):
         self.username = username
         self.password = password
         self.tenant = tenant
-        self.token = authenticate(host, username, password, tenant)
+	if(token==''):
+        	self.token = authenticate(host, username, password, tenant)
+	else:
+		self.token = token
 
     def getToken(self):
         """
