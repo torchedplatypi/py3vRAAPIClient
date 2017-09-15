@@ -19,7 +19,7 @@ def checkResponse(r):
     if not r.status_code in acceptedResponses:
         print("STATUS: {status} ".format(status=r.status_code))
         print("ERROR: " + r.text)
-        sys.exit(r.status_code)
+        #sys.exit(r.status_code)
 
 
 def authenticate(host, user, password, tenant):
