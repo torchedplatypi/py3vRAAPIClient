@@ -504,7 +504,7 @@ class ConsumerClient(object):
 
         return id
 
-    def performAction(self, resourceId=None, actionName=None, actionId=None, requestDataEntries=None):
+    def performAction(self, resource, actionName=None, actionId=None, requestDataEntries=None):
         assert actionName or actionId
         assert not actionName or not actionId
         if not actionId:
@@ -513,7 +513,7 @@ class ConsumerClient(object):
         requestData = {
             "@type": "ResourceActionRequest",
             "resourceRef": {
-                "id": resourceId
+                "id": resource["id"]
             },
             "resourceActionRef": {
                 "id": actionId
