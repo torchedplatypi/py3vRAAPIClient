@@ -506,6 +506,9 @@ class ConsumerClient(object):
 
     def performAction(self, resource, actionID=None, requestDataEntries=None):
 
+        host = self.host
+        token = self.token
+
         url = 'https://{host}/catalog-service/api/consumer/resources/{id}/actions/{actionID}/requests/template'.format(id=resource['id'], actionID=actionID)
         headers = {
             'Content-Type': 'application/json',
@@ -515,7 +518,6 @@ class ConsumerClient(object):
         r = requests.get(url=url, headers=headers, verify=False)
         checkResponse(r)
         template = r.json()
-
 
         url = 'https://{host}/catalog-service/api/consumer/resources/{id}/actions/{actionID}/requests'.format(id=resource['id'], actionID=actionID)
         r = requests.post(url=url, data=json.dumps(template), headers=headers, verify=False)
