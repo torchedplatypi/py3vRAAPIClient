@@ -504,28 +504,24 @@ class ConsumerClient(object):
 
         return id
 
-    def performAction(self, resource, actionName=None, actionId=None, requestDataEntries=None):
-        assert actionName or actionId
-        assert not actionName or not actionId
-        if not actionId:
-            actions = self.getResourceActions(resource["id"])
-            actionId = actions[actionName]["id"]
-        requestData = {
-            "@type": "ResourceActionRequest",
-            "resourceRef": {
-                "id": resource["id"]
-            },
-            "resourceActionRef": {
-                "id": actionId
-            },
-            "organization": resource["organization"],
-            "state": "SUBMITTED",
-            "requestNumber": 0,
-            "requestData": {
-                "entries": requestDataEntries if requestDataEntries else []
-            }
+    def performAction(self, resource, actionID=None, requestDataEntries=None):
+
+        url = 'https://{host}/catalog-service/api/consumer/resources/{id}/actions/{actionID}/requests/template'.format(id=resource['id'], actionID=actionID)
+        headers = {
+            'Content-Type': 'application/json',
+            'Accept': 'application/json',
+            'Authorization': token
         }
-        return self.requestResource(requestData)
+        r = requests.get(url=url, headers=headers, verify=False)
+        checkResponse(r)
+        template = r.json()
+
+
+        url = 'https://{host}/catalog-service/api/consumer/resources/{id}/actions/{actionID}/requests'.format(id=resource['id'], actionID=actionID)
+        r = requests.post(url=url, data=json.dumps(template), headers=headers, verify=False)
+        checkResponse(r)
+        requestid = r.headers['location'].split('/')[7]
+        return requestid
 
     #this is broken for our version of vRA and I haven't succesfully fixed yet. Leave alone for now.
     def provisionCatalogItem(self, catalogItem, forWhom="", requestDescription=None, reason=None,
