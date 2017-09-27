@@ -509,7 +509,7 @@ class ConsumerClient(object):
         host = self.host
         token = self.token
 
-        url = 'https://{host}/catalog-service/api/consumer/resources/{id}/actions/{actionID}/requests/template'.format(id=resource['id'], actionID=actionID)
+        url = 'https://{host}/catalog-service/api/consumer/resources/{id}/actions/{actionID}/requests/template'.format(host=host, id=resource['id'], actionID=actionID)
         headers = {
             'Content-Type': 'application/json',
             'Accept': 'application/json',
@@ -519,7 +519,7 @@ class ConsumerClient(object):
         checkResponse(r)
         template = r.json()
 
-        url = 'https://{host}/catalog-service/api/consumer/resources/{id}/actions/{actionID}/requests'.format(id=resource['id'], actionID=actionID)
+        url = 'https://{host}/catalog-service/api/consumer/resources/{id}/actions/{actionID}/requests'.format(host=host, id=resource['id'], actionID=actionID)
         r = requests.post(url=url, data=json.dumps(template), headers=headers, verify=False)
         checkResponse(r)
         requestid = r.headers['location'].split('/')[7]
