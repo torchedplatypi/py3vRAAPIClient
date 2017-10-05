@@ -164,6 +164,12 @@ class ConsumerClient(object):
         assert len(machineStatus) == 1
         return machineStatus[0][u"value"]
 
+    def getMachineIP(self, id=None, resource=None):
+        resourceDataDict = self.getResourceDataEntriesAsDict(id=id, resource=resource)
+        machineStatus = resourceDataDict["ip_address"]
+        assert len(machineStatus) == 1
+        return machineStatus[0][u"value"]
+
     def getResourceActions(self, id, raw=False):
         host = self.host
         token = self.token
