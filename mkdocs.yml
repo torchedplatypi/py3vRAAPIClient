@@ -1,6 +1,6 @@
 ---
 
-site_name: vRAAPIClient
+site_name: vra7-rest-wrapper
 pages:
 - 'Home'  : 'index.md'
 - 'Getting Started': 'getting_started.md'
