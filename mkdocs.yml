@@ -1,6 +1,6 @@
 ---
 
-site_name: vra7-rest-wrapper
+site_name: vra7_rest_wrapper
 pages:
 - 'Home'  : 'index.md'
 - 'Getting Started': 'getting_started.md'

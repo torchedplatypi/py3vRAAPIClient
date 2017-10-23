@@ -1,8 +1,8 @@
-### Welcome to vra7-rest-wrapper
+### Welcome to vra7\_rest\_wrapper
 
 This project is a fork of [vRAAPIClient by chelnak](https://github.com/chelnak/vRAAPIClient), which was originally written for Python 2.
 
-vra7-rest-wrapper is a python 3 wrapper for the vRealize Automation version 7 REST API. It currently supports:
+vra7\_rest\_wrapper is a python 3 wrapper for the vRealize Automation version 7 REST API. It currently supports:
 
 * Catalog Service Consumer API client: Request and view resources
 
