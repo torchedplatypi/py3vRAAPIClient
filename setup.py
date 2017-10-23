@@ -7,13 +7,13 @@ def read(fname):
     return open(os.path.join(os.path.dirname(__file__), fname)).read()
 
 
-setup(name='vRAAPIClient',
+setup(name='vra7-rest-wrapper',
       version='1.0.2.4',
       description='vRealize Automation API Client',
-      author='chelnak',
-      author_email='',
+      author='torchedplatypi',
+      author_email='torchedplatypi@gmail.com',
       install_requires=['requests', 'prettytable'],
-      packages=['vraapiclient'],
+      packages=['vra7-rest-wrapper'],
       long_description=read('README.md'),
       keywords=['VMWare', 'vRealize Automation', 'vRA'],
       classifiers=[
