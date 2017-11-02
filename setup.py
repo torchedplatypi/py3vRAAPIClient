@@ -8,7 +8,7 @@ def read(fname):
 
 
 setup(name='vra7_rest_wrapper',
-      version='1.0.2.4',
+      version='1.0.3',
       description='vRealize Automation API Client',
       author='torchedplatypi',
       author_email='torchedplatypi@gmail.com',
